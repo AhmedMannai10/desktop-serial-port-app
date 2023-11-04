@@ -1,7 +1,5 @@
+import 'package:desktop_serial_port_app/routes.dart';
 import 'package:flutter/material.dart';
-
-import 'homepage.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -13,15 +11,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Serial port com app',
-      theme:ThemeData(
+      theme: ThemeData(
+          textTheme: const TextTheme(
+            displayMedium: TextStyle(color: Colors.red),
+            bodyLarge: TextStyle(color: Colors.blue),
+          ),
           primaryColor: const Color(0xFF6F35A5),
-          scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: const Color(0xFF202020),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               elevation: 0,
-              primary: const Color(0xFF6F35A5),
               shape: const StadiumBorder(),
               maximumSize: const Size(double.infinity, 56),
               minimumSize: const Size(double.infinity, 56),
@@ -32,17 +33,14 @@ class MyApp extends StatelessWidget {
             fillColor: Color(0xFF6F35A5),
             iconColor: Color(0xFF6F35A5),
             prefixIconColor: Color(0xFF6F35A5),
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: 16.0, vertical: 16.0),
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(30)),
               borderSide: BorderSide.none,
             ),
-          )),       
-          home: const HomePage()
+          )),
+      routerConfig: AppRouter.returnRouter,
     );
   }
 }
-
-
-
