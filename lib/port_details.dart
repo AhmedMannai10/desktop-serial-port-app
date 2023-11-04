@@ -15,14 +15,27 @@ class PortDetails extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(portName),
+        backgroundColor: const Color(0xfffe8019),
+        title: Text(
+          portName,
+          style: const TextStyle(color: Colors.black),
+        ),
         leading: IconButton(
           icon:
-              const Icon(Icons.arrow_back_ios_new_sharp, color: Colors.white54),
+              const Icon(Icons.arrow_back_ios_new_sharp, color: Colors.black87),
           onPressed: () {
             context.go('/');
           },
         ),
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.add_alert),
+              tooltip: 'Show Snackbar',
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('This is a snackbar')));
+              })
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

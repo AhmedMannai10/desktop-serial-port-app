@@ -30,10 +30,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Text("Serial Port APP"),
-            backgroundColor: const Color(0xff764abc)),
+            title: const Text(
+              "Serial Port APP",
+              style: TextStyle(color: Colors.black),
+            ),
+            backgroundColor: const Color(0xfffe8019)),
         floatingActionButton: FloatingActionButton(
-            backgroundColor: const Color(0xff764abc),
+            backgroundColor: const Color(0xfffe8019),
             child: const Icon(Icons.refresh_sharp),
             onPressed: () {
               initPorts();
@@ -43,23 +46,6 @@ class _HomePageState extends State<HomePage> {
           // constraints: const BoxConstraints(maxWidth: 800, minWidth: 400),
           child: ListView(
             children: [
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Center(
-                  child: Text(
-                    'Available Serial Ports',
-                    style: TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              const Divider(
-                color: Colors.white54,
-                thickness: 2.0,
-              ),
               for (final name in availablePorts)
                 Builder(
                   builder: (context) {
