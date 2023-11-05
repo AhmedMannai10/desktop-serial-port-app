@@ -28,13 +28,31 @@ class PortDetails extends StatelessWidget {
           },
         ),
         actions: [
-          IconButton(
-              icon: const Icon(Icons.add_alert),
-              tooltip: 'Show Snackbar',
+          SizedBox(
+            width: 200,
+            height: 30,
+            child: ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('This is a snackbar')));
-              })
+                String name = portName.trim().replaceAll('/', '-');
+                context.go('/io-port/$name');
+              },
+              style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                          side: BorderSide(color: Colors.red)))),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.chat_sharp,
+                    color: Colors.black87,
+                  ),
+                  Text(" IO Port "),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       body: Padding(
@@ -63,12 +81,12 @@ class PortDetails extends StatelessWidget {
 
 Widget _informationField(String label, String? value) {
   return Container(
-    padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-    margin: EdgeInsets.only(top: 10),
+    padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+    margin: const EdgeInsets.only(top: 10),
     height: 50,
     decoration: BoxDecoration(
-        border: Border.all(width: 2.0, color: Color(0xfffbf1c7)),
-        borderRadius: BorderRadius.all(Radius.circular(8))),
+        border: Border.all(width: 2.0, color: const Color(0xfffbf1c7)),
+        borderRadius: const BorderRadius.all(Radius.circular(8))),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

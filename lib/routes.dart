@@ -7,7 +7,13 @@ class AppRouter {
   static final GoRouter returnRouter = GoRouter(
     initialLocation: "/",
     routes: [
-      GoRoute(name: "IO", path: "/io", builder: (context, state) => IOPage()),
+      GoRoute(
+          name: "IO",
+          path: "/io-port/:name",
+          builder: (context, state) {
+            final String name = state.pathParameters['name']!;
+            return IOPage(passedPortName: name);
+          }),
       GoRoute(name: "Home", path: "/", builder: (context, state) => HomePage()),
       GoRoute(
         name: "Port",

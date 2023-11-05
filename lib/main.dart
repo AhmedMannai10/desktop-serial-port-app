@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Serial port com app',
+      title: 'Serial Port App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
           textTheme: const TextTheme(
             displayMedium: TextStyle(color: Colors.red),
